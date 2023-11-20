@@ -51,20 +51,21 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded == true)
             {
-                TheRb.velocity = new Vector2(TheRb.velocity.x, jumpForce);
+                
+                Jump();
                 canDoubleJump = true;
             }
             else
             {
                 if(canDoubleJump == true)
                 {
-                    TheRb.velocity = new Vector2(TheRb.velocity.x, jumpForce);
-
+                    //TheRb.velocity = new Vector2(TheRb.velocity.x, jumpForce);
+                    Jump();
                     canDoubleJump = false;
                 }
             }
         }
-
+        //im gonna be honest, forgot what this does
         if(TheRb.velocity.x > 0)
         {
            transform.localScale = Vector3.one;
@@ -75,7 +76,10 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
-
+    //custom function since i repeated jump alot in code
+    void Jump()
+    {
+        TheRb.velocity = new Vector2(TheRb.velocity.x, jumpForce);
+    }
 
 }
