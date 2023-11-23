@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 904599dc208da934a80fa429f30d067c
+guid: 5ee561f752f956648b457db4828778eb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FL__MainCharacter-sheet_0
+      name: Running_Animations_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b76d647bd611af64489930aa4e7f9c82
-      internalID: 1813587378
+      spriteID: 711c6d24acf0f2943981eb507c6fa89f
+      internalID: -1602121695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FL__MainCharacter-sheet_1
+      name: Running_Animations_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85e7dd13475960442aef5197fe3555c6
-      internalID: -1421930295
+      spriteID: 8a8abaf80ace4a042b0399ee10ab1d03
+      internalID: -565851021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FL__MainCharacter-sheet_2
+      name: Running_Animations_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 987a597aec874d74a9eff1e27a715c5b
-      internalID: -1958309626
+      spriteID: 0ce349d82b9217a41b2dd4b0066c7a76
+      internalID: -1366188833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FL__MainCharacter-sheet_3
+      name: Running_Animations_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63d5e546aefd2234b9f7107339b64b31
-      internalID: 104172608
+      spriteID: 26cdcfd4ff896bc47865320156bf65ff
+      internalID: -1755584533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FL__MainCharacter-sheet_4
+      name: Running_Animations_4
       rect:
         serializedVersion: 2
         x: 256
@@ -221,8 +221,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fdc4ec5e4993c04aba3d329d0ebe2ce
-      internalID: 428965892
+      spriteID: 14b7be2ac5652074d924df58bd9c70dd
+      internalID: -1721298021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running_Animations_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 064e589d269bef74c9710cf49d72bb89
+      internalID: -157310569
       vertices: []
       indices: 
       edges: []
@@ -238,11 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FL__MainCharacter-sheet_0: 1813587378
-      FL__MainCharacter-sheet_1: -1421930295
-      FL__MainCharacter-sheet_2: -1958309626
-      FL__MainCharacter-sheet_3: 104172608
-      FL__MainCharacter-sheet_4: 428965892
+      Running_Animations_0: -1602121695
+      Running_Animations_1: -565851021
+      Running_Animations_2: -1366188833
+      Running_Animations_3: -1755584533
+      Running_Animations_4: -1721298021
+      Running_Animations_5: -157310569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
