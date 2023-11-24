@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask whatIsGround;
     private bool canDoubleJump;
+
+    public Animator anim;
+
+
    // public float floatingForce = 10f;
 
     void Start()
@@ -74,6 +78,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
+        //handle animations
+        anim.SetFloat("speed", Mathf.Abs(TheRb.velocity.x));
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetFloat("ySpeed", TheRb.velocity.y);
+
 
     }
     //custom function since i repeated jump alot in code
