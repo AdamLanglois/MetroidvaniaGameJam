@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
 
 
+    public BulletController shotToFire;
+    public Transform shotPoint;
+
+
    // public float floatingForce = 10f;
 
     void Start()
@@ -67,10 +71,28 @@ public class PlayerController : MonoBehaviour
                     Jump();
                     canDoubleJump = false;
                 }
+
+               
+            
             }
+       
+        
+      }
+        if (Input.GetButton("Fire1"))
+        {
+           Instantiate(shotToFire, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0f);
+
+
+
+
+
+
         }
+
+
+
         //im gonna be honest, forgot what this does
-        if(TheRb.velocity.x > 0)
+        if (TheRb.velocity.x > 0)
         {
            transform.localScale = Vector3.one;
         }
