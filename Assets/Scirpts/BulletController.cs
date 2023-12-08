@@ -9,6 +9,7 @@ public class BulletController : MonoBehaviour
 
     public Vector2 moveDir;
 
+    public GameObject impactEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,13 @@ public class BulletController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(gameObject);
+        if (impactEffect != null)
+        {
+            Instantiate(impactEffect, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
+
     }
     private void OnBecameInvisible()
     {
