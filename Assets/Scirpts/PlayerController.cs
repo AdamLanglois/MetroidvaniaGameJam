@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
 
     private PlayerAbilityTracker abilities;
 
+    public float knockbackLength, knockbackSpeed;
+    private float knockbackCounter;
+
 
    // public float floatingForce = 10f;
 
@@ -57,115 +60,122 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
        
-      
+         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, whatIsGround);
 
 
-        isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, whatIsGround);
-        //TheRb.AddForce(Vector2.up * floatingForce);
-        //TheRb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, TheRb.velocity.y);
-
-        activeSpeed = moveSpeed;
-        if(Input.GetKey(KeyCode.LeftShift))
+        if (knockbackCounter <= 0)
         {
-            activeSpeed = runSpeed;
-
-        }
 
 
 
-        TheRb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * activeSpeed, TheRb.velocity.y);
-
-
-
-        if (Input.GetButtonDown("Jump") && (isGrounded || (canDoubleJump && abilities.canDoubleJump)))
-        {
-            if (isGrounded == true)
+            activeSpeed = moveSpeed;
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                
-                Jump();
-                canDoubleJump = true;
+                activeSpeed = runSpeed;
+
+            }
+
+
+
+            TheRb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * activeSpeed, TheRb.velocity.y);
+
+
+
+            if (Input.GetButtonDown("Jump") && (isGrounded || (canDoubleJump && abilities.canDoubleJump)))
+            {
+                if (isGrounded == true)
+                {
+
+                    Jump();
+                    canDoubleJump = true;
+                }
+                else
+                {
+                    if (canDoubleJump == true)
+                    {
+
+                        Jump();
+                        canDoubleJump = false;
+                    }
+
+
+
+                }
+
+
+            }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Instantiate(shotToFire, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0f);
+
+                anim.SetTrigger("shotFired");
+
+
+
+
+            }
+
+
+            if (dashRechargeCounter > 0)
+            {
+
+                dashRechargeCounter -= Time.deltaTime;
+
             }
             else
             {
-                if(canDoubleJump == true)
+
+                if (Input.GetButtonDown("Fire2") && abilities.canDash)
                 {
-                    //TheRb.velocity = new Vector2(TheRb.velocity.x, jumpForce);
-                    Jump();
-                    canDoubleJump = false;
+                    dashCounter = dashTime;
+
+                    ShowAfterImage();
+
                 }
 
-               
-            
             }
-       
-        
-      }
-        if (Input.GetButtonDown("Fire1"))
-        {
-           Instantiate(shotToFire, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0f);
 
-            anim.SetTrigger("shotFired");
-
-
-
-
-        }
-
-
-        if (dashRechargeCounter > 0)
-        {
-
-            dashRechargeCounter -= Time.deltaTime;
-
-        }
-        else
-        {
-
-            if (Input.GetButtonDown("Fire2") && abilities.canDash)
+            if (dashCounter > 0)
             {
-                dashCounter = dashTime;
+                dashCounter = dashCounter - Time.deltaTime;
 
-                ShowAfterImage();
+                TheRb.velocity = new Vector2(dashSpeed * transform.localScale.x, TheRb.velocity.y);
+
+                afterImageCounter -= Time.deltaTime;
+                if (afterImageCounter <= 0)
+
+                {
+                    ShowAfterImage();
+                }
+
+                dashRechargeCounter = waitAfterDashing;
+
 
             }
 
-        }
+            else
+            {
+                
 
-        if (dashCounter > 0)
+
+
+
+                //im gonna be honest, forgot what this does
+                if (TheRb.velocity.x > 0)
+                {
+                    transform.localScale = Vector3.one;
+                }
+                if (TheRb.velocity.x < 0)
+                {
+                    transform.localScale = new Vector3(-1f, 1f, 1f);
+                }
+
+            }
+        } else
         {
-            dashCounter = dashCounter - Time.deltaTime;
+            knockbackCounter -= Time.deltaTime;
 
-            TheRb.velocity = new Vector2(dashSpeed * transform.localScale.x, TheRb.velocity.y);
-
-            afterImageCounter -= Time.deltaTime;
-            if(afterImageCounter <= 0)
-
-            {
-                ShowAfterImage();
-            }
-
-            dashRechargeCounter = waitAfterDashing;
-
-
-        }
-
-        else
-        {
-
-
-
-
-
-            //im gonna be honest, forgot what this does
-            if (TheRb.velocity.x > 0)
-            {
-                transform.localScale = Vector3.one;
-            }
-            if (TheRb.velocity.x < 0)
-            {
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-            }
-
+            TheRb.velocity = new Vector2(knockbackSpeed * -transform.localScale.x, TheRb.velocity.y);
         }
 
             //handle animations
@@ -193,6 +203,18 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         TheRb.velocity = new Vector2(TheRb.velocity.x, jumpForce);
+
+        
+
     }
+    public void KnockBack()
+    {
+        TheRb.velocity = new Vector2(0f, jumpForce * .5f);
+        anim.SetTrigger("isKnockingBack");
+
+        knockbackCounter = knockbackLength;
+
+    }
+
 
 }

@@ -572,6 +572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 247941996}
   - component: {fileID: 247941997}
+  - component: {fileID: 247941998}
   m_Layer: 0
   m_Name: Ground Check Point
   m_TagString: Untagged
@@ -588,7 +589,7 @@ Transform:
   m_GameObject: {fileID: 247941995}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.82, z: 0}
+  m_LocalPosition: {x: 0, y: -3.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -601,7 +602,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247941995}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -639,6 +640,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.09265041}
   m_EdgeRadius: 0
+--- !u!70 &247941998
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247941995}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.25}
+  m_Size: {x: 0.5, y: 0.5}
+  m_Direction: 0
 --- !u!1 &292629351
 GameObject:
   m_ObjectHideFlags: 0
@@ -38828,7 +38864,7 @@ Transform:
   m_GameObject: {fileID: 1313318019}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.07, z: 0}
+  m_LocalPosition: {x: 0, y: -3.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38869,8 +38905,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.014265716, y: -1.0636742}
-  m_Size: {x: 1.9551133, y: 5.23869}
+  m_Offset: {x: -0.014265716, y: -0.9165814}
+  m_Size: {x: 1.9551133, y: 4.9445043}
   m_Direction: 0
 --- !u!50 &1313318022
 Rigidbody2D:
@@ -38931,6 +38967,8 @@ MonoBehaviour:
   timeBetweenAfterImages: 0.02
   afterImageColor: {r: 0, g: 0.80286455, b: 1, a: 0.6392157}
   waitAfterDashing: 0.5
+  knockbackLength: 0.5
+  knockbackSpeed: 5
 --- !u!95 &1313318024
 Animator:
   serializedVersion: 5
@@ -38981,6 +39019,9 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 5
   invincibilityLength: 1
+  theSR: {fileID: 56168080}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  fadeColor: {r: 0.8352941, g: 0.34117648, b: 0.30588236, a: 0.6392157}
 --- !u!1 &1395480755
 GameObject:
   m_ObjectHideFlags: 0
