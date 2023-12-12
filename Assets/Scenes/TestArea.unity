@@ -38923,7 +38923,7 @@ MonoBehaviour:
   anim: {fileID: 1313318024}
   shotToFire: {fileID: 5563672078046775112, guid: 92b97ff1969e27948920eaeb1f35aae1, type: 3}
   shotPoint: {fileID: 1949904050}
-  dashSpeed: 30
+  dashSpeed: 40
   dashTime: 0.2
   theSR: {fileID: 56168080}
   afterImage: {fileID: 1689227365451524787, guid: 36b423d274f9dd54fa04312091922346, type: 3}
@@ -38980,6 +38980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 5
+  invincibilityLength: 1
 --- !u!1 &1395480755
 GameObject:
   m_ObjectHideFlags: 0
