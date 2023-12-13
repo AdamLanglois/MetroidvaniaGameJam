@@ -11,7 +11,16 @@ public class PlayerHealthController : MonoBehaviour
 
         private void Awake()
     {
-        instance = this;
+
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+
+        }else
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -71,7 +80,10 @@ public class PlayerHealthController : MonoBehaviour
             {
                 currentHealth = 0;
 
-                gameObject.SetActive(false);
+                // gameObject.SetActive(false);
+
+
+                RespawnController.instance.Respawn();
 
             }
             else
@@ -95,4 +107,15 @@ public class PlayerHealthController : MonoBehaviour
 
 
     }
+
+    public void FillHealth()
+    {
+        currentHealth = maxHealth;
+
+
+        UIController.instance.UpdateHealthDisplay(currentHealth, maxHealth);
+
+    }
+
+
 }
