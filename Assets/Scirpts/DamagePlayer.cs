@@ -5,7 +5,24 @@ using UnityEngine;
 public class DamagePlayer : MonoBehaviour
 {
     private PlayerHealthController healthController;
+    public int damageAmount = 1;
 
+
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            DealDamage();
+        }
+    }
+
+
+        void DealDamage()
+    {
+
+    }
 
 
     // Start is called before the first frame update

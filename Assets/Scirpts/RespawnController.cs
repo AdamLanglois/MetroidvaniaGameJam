@@ -29,6 +29,7 @@ public class RespawnController : MonoBehaviour
 
     private GameObject thePlayer;
 
+    public GameObject deathEffect;
 
 
     void Start()
@@ -59,6 +60,12 @@ public class RespawnController : MonoBehaviour
     {
 
         thePlayer.SetActive(false);
+        if(deathEffect != null)
+        {
+            Instantiate(deathEffect, thePlayer.transform.position, thePlayer.transform.rotation);
+        }
+
+
 
         yield return new WaitForSeconds(waitToRespawn);
 

@@ -42,8 +42,9 @@ public class PlayerController : MonoBehaviour
 
     public float knockbackLength, knockbackSpeed;
     private float knockbackCounter;
-
-
+    /*public int shotsFiredCount = 0;
+    private float shotCooldown = 1.5f;
+    private float shotTimer = 0f; */
    // public float floatingForce = 10f;
 
     void Start()
@@ -104,18 +105,27 @@ public class PlayerController : MonoBehaviour
 
 
             }
-            if (Input.GetButtonDown("Fire1"))
+          /*  if(shotTimer > 0)
             {
-                Instantiate(shotToFire, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0f);
+                shotTimer -= Time.deltaTime;
+            }*/
 
-                anim.SetTrigger("shotFired");
+           // if (shotTimer <= 0f && shotsFiredCount < 3)
+               // {
+
+                if (Input.GetButtonDown("Fire1") /* && shotsFiredCount < 3 */)
+                {
+                    Instantiate(shotToFire, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0f);
+
+                    anim.SetTrigger("shotFired");
 
 
+                 //   shotsFiredCount++;
+                 //   shotTimer = shotCooldown;
 
+                }
 
-            }
-
-
+          //  }
             if (dashRechargeCounter > 0)
             {
 
