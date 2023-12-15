@@ -41,6 +41,10 @@ public class CameraController : MonoBehaviour
 
 
         }
+        else
+        {
+            player = FindObjectOfType<PlayerController>();
+        }
 
 
 
