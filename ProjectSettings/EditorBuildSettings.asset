@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestArea.unity
-    guid: f5c36118580d4ed4e887425ecee3b584
-  - enabled: 1
-    path: Assets/Scenes/Test2.unity
-    guid: 2d15c8470479b864894eb6860e72d877
+    path: Assets/Scenes/Main Menu.unity
+    guid: bcf0988ca3cd80144959cd7641cedb8c
   - enabled: 1
     path: Assets/Scenes/Area 1.unity
     guid: 7482f783d8d4fb442b08580caee6b747
   - enabled: 1
     path: Assets/Scenes/Area 2.unity
     guid: fda52c60b05674042a09c7ccd764faaf
+  - enabled: 1
+    path: Assets/Scenes/Boss Fight.unity
+    guid: 252e5220f66205e408a85e63c22ea670
+  - enabled: 1
+    path: Assets/Scenes/Victory Screen.unity
+    guid: c38de8b15d115754b8282d88805b1260
   m_configObjects: {}

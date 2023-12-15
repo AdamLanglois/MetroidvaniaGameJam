@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Ground
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -17,11 +18,11 @@ TagManager:
   - Player
   - No Collisions
   - Shot
-  - 
-  - 
+  - TriggerZone
+  - Boss
   - Soul
-  - 
-  - 
+  - Boss Shot
+  - Pickups
   - 
   - 
   - 

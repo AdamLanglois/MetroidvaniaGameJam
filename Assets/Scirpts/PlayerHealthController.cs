@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class PlayerHealthController : MonoBehaviour
 {
-    
+
     public static PlayerHealthController instance;
 
 
-        private void Awake()
+    private void Awake()
     {
 
         if (instance == null)
@@ -17,7 +17,7 @@ public class PlayerHealthController : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
 
-        }else
+        } else
         {
             Destroy(gameObject);
         }
@@ -49,11 +49,11 @@ public class PlayerHealthController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(invincibilityCounter > 0)
+        if (invincibilityCounter > 0)
         {
             invincibilityCounter -= Time.deltaTime;
 
-            if(invincibilityCounter <= 0) 
+            if (invincibilityCounter <= 0)
             {
                 theSR.color = normalColor;
             }
@@ -117,5 +117,18 @@ public class PlayerHealthController : MonoBehaviour
 
     }
 
+    public void HealPlayer(int healAmount)
+    {
+
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth)
+        {
+
+            currentHealth = maxHealth;
+        }
+
+        UIController.instance.UpdateHealthDisplay(currentHealth, maxHealth);
+    }
+    
 
 }

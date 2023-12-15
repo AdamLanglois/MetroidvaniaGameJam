@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e7ae465f544c84ab7f4a6dc2f39b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 1
+  currentHealth: 5
+  maxHealth: 5
   invincibilityLength: 1
   theSR: {fileID: 3518472354233156427}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
